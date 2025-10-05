@@ -32,7 +32,18 @@ return {
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
       require('nvim-tree').setup()
-      vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>', { desc = 'File Explorer' })
+    end,
+  },
+  {
+    "akinsho/toggleterm.nvim",
+    version = "*",
+    lazy=false,
+    config = function()
+      require("toggleterm").setup{
+        direction = "horizontal",
+        size = 15,
+        start_in_insert = true,
+      }
     end,
   }
 }
