@@ -10,8 +10,11 @@ vim.keymap.set('n', '<C-f>', builtin.live_grep, { desc = "Live grep" })
 vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = "List buffers" })
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = "Help tags" })
 
--- toggle term
-vim.keymap.set("n", "<leader>t", "<cmd>ToggleTerm direction=float<CR>", { desc = "Toggle floating terminal" })
+-- Terminals
+
+vim.keymap.set('n', '<leader>t', ':botright 12split | terminal<CR>', { noremap = true, silent = true })
+
+vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = true })
 
 -- nvim tree
 
@@ -31,4 +34,3 @@ local map = vim.keymap.set
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 
--- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")

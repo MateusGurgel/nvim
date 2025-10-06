@@ -31,19 +31,13 @@ return {
     "nvim-tree/nvim-tree.lua",
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
-      require('nvim-tree').setup()
-    end,
-  },
-  {
-    "akinsho/toggleterm.nvim",
-    version = "*",
-    lazy=false,
-    config = function()
-      require("toggleterm").setup{
-        direction = "horizontal",
-        size = 15,
-        start_in_insert = true,
-      }
+      require('nvim-tree').setup({
+        view = {
+          width = 30,
+          side = 'left',
+          preserve_window_proportions = true
+        }
+      })
     end,
   }
 }
