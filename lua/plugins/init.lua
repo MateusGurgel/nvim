@@ -36,10 +36,17 @@ return {
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
       require('nvim-tree').setup({
+        actions = {
+          use_system_clipboard = true,
+          change_dir = {
+            enable = true,
+            global = false,
+          },
+        },
         view = {
-          width = 30,
+          width = 40,
           side = 'left',
-          preserve_window_proportions = true
+          preserve_window_proportions = true,
         }
       })
     end,
