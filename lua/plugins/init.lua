@@ -1,5 +1,9 @@
 return {
   {
+    "moll/vim-bbye",
+    lazy=false
+  },
+  {
     "stevearc/conform.nvim",
     opts = require "configs.conform",
   },

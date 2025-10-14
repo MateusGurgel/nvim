@@ -7,6 +7,21 @@ local lspconfig = require "lspconfig"
 local servers = { "html", "cssls", "pyright", "ruff" }
 local nvlsp = require "nvchad.configs.lspconfig"
 
+-- setup project venv
+
+lspconfig.pyright.setup {
+  settings = {
+    python = {
+      analysis = {
+        autoSearchPaths = true,
+        useLibraryCodeForTypes = true,
+      },
+      pythonPath = vim.fn.getcwd() .. '/.venv/bin/python',
+    },
+  },
+}
+
+
 -- lsps with default config
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {

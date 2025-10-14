@@ -22,11 +22,11 @@ vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>', { desc = 'File Explorer'
 
 -- nvim tree | tabs command
 
-vim.keymap.set('n', '<A-PageDown>', ':bnext<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<A-PageDown>', ':bprevious<CR>', { noremap = true, silent = true })
 
-vim.keymap.set('n', '<A-PageUp>', ':bprevious<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<A-PageUp>', ':bnext<CR>', { noremap = true, silent = true })
 
-vim.keymap.set('n', '<A-w>', ':bdelete<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<A-w>', ':Bdelete!<CR>', { noremap = true, silent = true })
 
 
 local map = vim.keymap.set
