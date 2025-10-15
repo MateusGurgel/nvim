@@ -50,5 +50,23 @@ return {
         }
       })
     end,
-  }
+  },
+  {
+    "mason-org/mason.nvim",
+    opts = {
+      ensure_installed = {
+        "tailwindcss-language-server",
+        "typescript-language-server",
+        "eslint-lsp",
+        "prettierd"
+      }
+    }
+  },
+  {
+    "nvimtools/none-ls.nvim",
+    event = "VeryLazy",
+    opts = function ()
+      return require "configs.null-ls"
+    end
+  },
 }

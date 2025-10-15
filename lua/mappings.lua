@@ -20,6 +20,12 @@ vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = true })
 
 vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>', { desc = 'File Explorer' })
 
+-- lsp config
+
+vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
+
+vim.keymap.set("n", "<leader>i", "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>", { desc = "List all available imports/symbols" })
+
 -- nvim tree | tabs command
 
 vim.keymap.set('n', '<A-PageDown>', ':bnext<CR>', { noremap = true, silent = true })
