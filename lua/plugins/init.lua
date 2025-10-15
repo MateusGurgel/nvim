@@ -19,7 +19,8 @@ return {
     opts = {
    	  ensure_installed = {
    		  "vim", "lua", "vimdoc",
-        "html", "css", "python", "go", "typescript"
+        "html", "css", "python", "go", 
+        "typescript", "javascript", "tsx"
    		},
    	},
   },
@@ -69,4 +70,16 @@ return {
       return require "configs.null-ls"
     end
   },
+  {
+    "windwp/nvim-ts-autotag",
+    ft = {
+      "javascript",
+      "javascriptreact",
+      "typescript",
+      "typescriptreact",
+    },
+    config = function ()
+      require("nvim-ts-autotag").setup()
+    end
+  }
 }
