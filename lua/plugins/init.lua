@@ -1,11 +1,12 @@
 return {
   {
     "moll/vim-bbye",
-    lazy=false
+    lazy = false,
   },
   {
     "stevearc/conform.nvim",
     opts = require "configs.conform",
+    event = "VeryLazy",
   },
   {
     "neovim/nvim-lspconfig",
@@ -17,26 +18,33 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
-   	  ensure_installed = {
-   		  "vim", "lua", "vimdoc",
-        "html", "css", "python", "go", 
-        "typescript", "javascript", "tsx"
-   		},
-   	},
+      ensure_installed = {
+        "vim",
+        "lua",
+        "vimdoc",
+        "html",
+        "css",
+        "python",
+        "go",
+        "typescript",
+        "javascript",
+        "tsx",
+      },
+    },
   },
   {
     "nvim-telescope/telescope.nvim",
-    tag = '0.1.8',
-    dependencies = { 'nvim-lua/plenary.nvim' },
-      config = function()
-        require('telescope').setup{}
-      end,
+    tag = "0.1.8",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+      require("telescope").setup {}
+    end,
   },
   {
     "nvim-tree/nvim-tree.lua",
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
-      require('nvim-tree').setup({
+      require("nvim-tree").setup {
         actions = {
           use_system_clipboard = true,
           change_dir = {
@@ -46,10 +54,10 @@ return {
         },
         view = {
           width = 40,
-          side = 'left',
+          side = "left",
           preserve_window_proportions = true,
-        }
-      })
+        },
+      }
     end,
   },
   {
@@ -59,16 +67,16 @@ return {
         "tailwindcss-language-server",
         "typescript-language-server",
         "eslint-lsp",
-        "prettierd"
-      }
-    }
+        "prettierd",
+      },
+    },
   },
   {
     "nvimtools/none-ls.nvim",
     event = "VeryLazy",
-    opts = function ()
+    opts = function()
       return require "configs.null-ls"
-    end
+    end,
   },
   {
     "windwp/nvim-ts-autotag",
@@ -78,8 +86,41 @@ return {
       "typescript",
       "typescriptreact",
     },
-    config = function ()
+    config = function()
       require("nvim-ts-autotag").setup()
-    end
-  }
+    end,
+  },
+  {
+    "glepnir/lspsaga.nvim",
+    event = "LspAttach",
+    config = function()
+      require("lspsaga").setup {
+        lightbulb = {
+          enable = true,
+          sign = true,
+          sign_priority = 20,
+          virtual_text = true,
+        },
+      }
+    end,
+  },
+  {
+    "kdheepak/lazygit.nvim",
+    lazy = true,
+    cmd = {
+      "LazyGit",
+      "LazyGitConfig",
+      "LazyGitCurrentFile",
+      "LazyGitFilter",
+      "LazyGitFilterCurrentFile",
+    },
+
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+
+    keys = {
+      { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
+    },
+  },
 }
