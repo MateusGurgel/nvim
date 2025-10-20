@@ -57,6 +57,12 @@ return {
           side = "left",
           preserve_window_proportions = true,
         },
+        filters = {
+          dotfiles = false,
+        },
+        git = {
+          ignore = false,
+        },
       }
     end,
   },
