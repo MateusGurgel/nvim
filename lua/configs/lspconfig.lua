@@ -1,8 +1,7 @@
 -- load defaults i.e lua_lsp
 require("nvchad.configs.lspconfig").defaults()
 
-
-local servers = { "html", "cssls", "pyright", "ruff", "tsserver", "tailwindcss", "eslint"}
+local servers = { "html", "cssls", "pyright", "ruff", "vtsls", "tailwindcss", "eslint" }
 
 -- lsps with default config
 for _, lsp in ipairs(servers) do

@@ -54,6 +54,8 @@ vim.keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", { silent = tru
 
 vim.api.nvim_set_keymap("n", "<F2>", "<cmd>lua vim.lsp.buf.rename()<CR>", { noremap = true, silent = true })
 
+vim.keymap.set("n", "<F12>", vim.lsp.buf.definition, { noremap = true, silent = true })
+
 -- nvim tree | tabs command
 
 vim.keymap.set("n", "<A-PageDown>", ":bnext<CR>", { noremap = true, silent = true })
@@ -66,3 +68,27 @@ local map = vim.keymap.set
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
+
+-- auto select on cursor hold
+
+-- init.lua
+vim.opt.hlsearch = true
+vim.opt.incsearch = true
+
+-- Highlight palavra sob o cursor automaticamente
+vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+  pattern = "*",
+  callback = function()
+    local word = vim.fn.expand "<cword>"
+    if word ~= "" then
+      vim.cmd("silent! match Search /\\V\\<" .. word .. "\\>/")
+    end
+  end,
+})
+
+vim.api.nvim_create_autocmd("CursorMoved", {
+  pattern = "*",
+  callback = function()
+    vim.cmd "silent! match none"
+  end,
+})
