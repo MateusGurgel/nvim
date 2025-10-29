@@ -92,3 +92,7 @@ vim.api.nvim_create_autocmd("CursorMoved", {
     vim.cmd "silent! match none"
   end,
 })
+
+-- dbui
+
+vim.keymap.set("n", "<leader>db", ":DBUIToggle<CR>", { desc = "Toggle DB UI" })

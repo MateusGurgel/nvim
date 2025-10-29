@@ -129,4 +129,5 @@ return {
       { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
     },
   },
+  unpack(require "plugins.vim-dadbod"),
 }
